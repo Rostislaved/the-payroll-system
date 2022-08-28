@@ -33,7 +33,7 @@ var (
 func TestAddSalariedEmployee(t *testing.T) {
 	payrollDatabase.Init()
 
-	salary := float64(1000)
+	salary := 1000.0
 
 	cmd := AddEmployee(empID, name, address, salariedEmployeeStrategy.New(salary))
 
@@ -93,7 +93,11 @@ func TestAddCommissionedEmployee(t *testing.T) {
 	commissionRate := float64(10)
 
 	cmd := AddEmployee(empID, name, address, commissionedEmployeeStrategy.New(salary, commissionRate))
-	cmd.Execute()
+
+	err := cmd.Execute()
+	if err != nil {
+		t.Fatal(err)
+	}
 
 	employee, err := payrollDatabase.GetEmployee(1)
 	if err != nil {
