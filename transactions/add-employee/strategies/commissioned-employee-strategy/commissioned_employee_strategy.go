@@ -7,11 +7,11 @@ import (
 )
 
 type CommissionedEmployeeStrategy struct {
-	salary         float32
-	commissionRate float32
+	salary         float64
+	commissionRate float64
 }
 
-func New(salary, commissionRate float32) CommissionedEmployeeStrategy {
+func New(salary, commissionRate float64) CommissionedEmployeeStrategy {
 	return CommissionedEmployeeStrategy{
 		salary:         salary,
 		commissionRate: commissionRate,

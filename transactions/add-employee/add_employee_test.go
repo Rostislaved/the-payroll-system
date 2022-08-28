@@ -33,12 +33,19 @@ var (
 func TestAddSalariedEmployee(t *testing.T) {
 	payrollDatabase.Init()
 
-	salary := float32(1000)
+	salary := float64(1000)
 
 	cmd := AddEmployee(empID, name, address, salariedEmployeeStrategy.New(salary))
-	cmd.Execute()
 
-	employee := payrollDatabase.GetEmployee(1)
+	err := cmd.Execute()
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	employee, err := payrollDatabase.GetEmployee(1)
+	if err != nil {
+		t.Fatal(err)
+	}
 
 	assert.Equal(t, name, employee.Name())
 
@@ -54,18 +61,25 @@ func TestAddSalariedEmployee(t *testing.T) {
 func TestAddHourlyEmployee(t *testing.T) {
 	payrollDatabase.Init()
 
-	hourlyRate := float32(10)
+	hourlyRate := float64(10)
 
 	cmd := AddEmployee(empID, name, address, hourlyEmployeeStrategy.New(hourlyRate))
-	cmd.Execute()
 
-	employee := payrollDatabase.GetEmployee(1)
+	err := cmd.Execute()
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	employee, err := payrollDatabase.GetEmployee(1)
+	if err != nil {
+		t.Fatal(err)
+	}
 
 	assert.Equal(t, name, employee.Name())
 
-	assert.IsType(t, hourlyClassification.HourlyClassification{}, employee.Classification())
+	assert.IsType(t, &hourlyClassification.HourlyClassification{}, employee.Classification())
 
-	hc, _ := employee.Classification().(hourlyClassification.HourlyClassification)
+	hc, _ := employee.Classification().(*hourlyClassification.HourlyClassification)
 	assert.InDelta(t, hourlyRate, hc.HourlyRate(), 0.001)
 
 	assert.IsType(t, weeklySchedule.WeeklySchedule{}, employee.Schedule())
@@ -75,13 +89,16 @@ func TestAddHourlyEmployee(t *testing.T) {
 func TestAddCommissionedEmployee(t *testing.T) {
 	payrollDatabase.Init()
 
-	salary := float32(1000)
-	commissionRate := float32(10)
+	salary := float64(1000)
+	commissionRate := float64(10)
 
 	cmd := AddEmployee(empID, name, address, commissionedEmployeeStrategy.New(salary, commissionRate))
 	cmd.Execute()
 
-	employee := payrollDatabase.GetEmployee(1)
+	employee, err := payrollDatabase.GetEmployee(1)
+	if err != nil {
+		t.Fatal(err)
+	}
 
 	assert.Equal(t, name, employee.Name())
 

@@ -7,10 +7,10 @@ import (
 )
 
 type SalariedEmployeeStrategy struct {
-	salary float32
+	salary float64
 }
 
-func New(salary float32) SalariedEmployeeStrategy {
+func New(salary float64) SalariedEmployeeStrategy {
 	return SalariedEmployeeStrategy{
 		salary: salary,
 	}

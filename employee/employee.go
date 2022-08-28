@@ -1,7 +1,7 @@
 package employee
 
 import (
-	"time"
+	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/date"
 )
 
 type Employee struct {
@@ -24,11 +24,11 @@ type PaymentMethod interface {
 }
 
 type PaymentSchedule interface {
-	IsPayday(date time.Time) bool
+	IsPayday(date date.Date) bool
 }
 
 type PaymentClassification interface {
-	CalculatePay(date time.Time) float32
+	CalculatePay(date date.Date) float64
 }
 
 func New(empid int, name, address string) Employee {
@@ -71,11 +71,11 @@ func (e *Employee) SetMethod(method PaymentMethod) {
 	e.method = method
 }
 
-func (e *Employee) IsPayDate(date time.Time) bool {
+func (e *Employee) IsPayDate(date date.Date) bool {
 	return e.schedule.IsPayday(date)
 }
 
-func (e *Employee) CalculatePay(date time.Time) float32 {
+func (e *Employee) CalculatePay(date date.Date) float64 {
 	pay := e.classification.CalculatePay(date)
 
 	// Affilation GetFee(date)

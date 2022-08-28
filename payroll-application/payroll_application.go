@@ -10,7 +10,7 @@ type TransactionSource interface {
 	GetTransaction() Transction
 }
 type Transction interface {
-	Execute()
+	Execute() error
 }
 
 func New(ts TransactionSource) PayrollApplication {

@@ -7,10 +7,10 @@ import (
 )
 
 type HourlyEmployeeStrategy struct {
-	hourlyRate float32
+	hourlyRate float64
 }
 
-func New(hourlyRate float32) HourlyEmployeeStrategy {
+func New(hourlyRate float64) HourlyEmployeeStrategy {
 	return HourlyEmployeeStrategy{
 		hourlyRate: hourlyRate,
 	}

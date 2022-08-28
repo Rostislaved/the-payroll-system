@@ -1,21 +1,21 @@
 package salariedClassification
 
-import "time"
+import "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/date"
 
 type SalariedClassification struct {
-	salary float32
+	salary float64
 }
 
-func New(salary float32) SalariedClassification {
+func New(salary float64) SalariedClassification {
 	return SalariedClassification{
 		salary: salary,
 	}
 }
 
-func (c SalariedClassification) Salary() float32 {
+func (c SalariedClassification) Salary() float64 {
 	return c.salary
 }
 
-func (c SalariedClassification) CalculatePay(date time.Time) float32 {
+func (c SalariedClassification) CalculatePay(date date.Date) float64 {
 	return 1.23 // impl
 }

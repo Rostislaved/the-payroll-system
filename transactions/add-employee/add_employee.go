@@ -3,6 +3,7 @@ package addEmployeeTransaction
 import (
 	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee"
 	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-methods/holdMethod"
+	payrollApplication "my-projects/awesomeProject15_AgileSoftwareDevelopment/payroll-application"
 	payrollDatabase "my-projects/awesomeProject15_AgileSoftwareDevelopment/payroll-database"
 )
 
@@ -18,7 +19,7 @@ type strategy interface {
 	MakeSchedule() employee.PaymentSchedule
 }
 
-func AddEmployee(empid int, name, address string, strategy strategy) AddEmployeeTransaction {
+func AddEmployee(empid int, name, address string, strategy strategy) payrollApplication.Transction {
 	return AddEmployeeTransaction{
 		strategy: strategy,
 		empid:    empid,
@@ -27,7 +28,7 @@ func AddEmployee(empid int, name, address string, strategy strategy) AddEmployee
 	}
 }
 
-func (t AddEmployeeTransaction) Execute() {
+func (t AddEmployeeTransaction) Execute() error {
 	paymentClassification := t.strategy.MakeClassification()
 	paymentSchedule := t.strategy.MakeSchedule()
 	paymentMethod := holdMethod.New()
@@ -38,5 +39,10 @@ func (t AddEmployeeTransaction) Execute() {
 	e.SetSchedule(paymentSchedule)
 	e.SetMethod(paymentMethod)
 
-	payrollDatabase.AddEmployee(t.empid, e)
+	err := payrollDatabase.AddEmployee(t.empid, e)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
