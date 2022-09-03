@@ -15,33 +15,33 @@ import (
 func TestDeleteEmployee(t *testing.T) {
 	payrollDatabase.Init()
 
-	empId := 4
+	empID := 4
 
 	cs := commissionedEmployeeStrategy.New(2500, 3.2)
 
-	at := addEmployeeTransaction.AddEmployee(empId, "Bill", "Home", cs)
+	at := addEmployeeTransaction.AddEmployee(empID, "Bill", "Home", cs)
 
 	err := at.Execute()
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	_, err = payrollDatabase.GetEmployee(empId)
+	_, err = payrollDatabase.GetEmployee(empID)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	dt := DeleteEmployee(empId)
+	dt := DeleteEmployee(empID)
 
 	err = dt.Execute()
 	if err != nil {
 		t.Fatal()
 	}
 
-	_, err = payrollDatabase.GetEmployee(empId)
+	_, err = payrollDatabase.GetEmployee(empID)
 	if err != nil {
 		switch {
-		case errors.Is(err, employee.ErrNoEmployeeFound):
+		case errors.Is(err, employee.ErrEmployeeNotFound):
 
 		default:
 			t.Fatal(err)
@@ -52,16 +52,16 @@ func TestDeleteEmployee(t *testing.T) {
 }
 
 //{
-//  int empId = 4;
+//  int empID = 4;
 //  AddCommissionedEmployee t =
 //    new AddCommissionedEmployee(
-//      empId, “Bill”, “Home”, 2500, 3.2);
+//      empID, “Bill”, “Home”, 2500, 3.2);
 //  t.Execute();
-//  Employee e = PayrollDatabase.GetEmployee(empId);
+//  Employee e = PayrollDatabase.GetEmployee(empID);
 //  Assert.IsNotNull(e);
 //  DeleteEmployeeTransaction dt =
-//    new DeleteEmployeeTransaction(empId);
+//    new DeleteEmployeeTransaction(empID);
 //  dt.Execute();
-//  e = PayrollDatabase.GetEmployee(empId);
+//  e = PayrollDatabase.GetEmployee(empID);
 //  Assert.IsNull(e);
 //}

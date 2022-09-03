@@ -1,23 +1,24 @@
-package timecardTransaction
+package addServiceCharge
 
 import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+
 	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/date"
 
-	hourlyClassification "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-classification/hourly-classification"
+	unionAffilation "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/affilation/union-affilation"
+
 	payrollDatabase "my-projects/awesomeProject15_AgileSoftwareDevelopment/payroll-database"
 
 	addEmployeeTransaction "my-projects/awesomeProject15_AgileSoftwareDevelopment/transactions/add-employee"
 	hourlyEmployeeStrategy "my-projects/awesomeProject15_AgileSoftwareDevelopment/transactions/add-employee/strategies/hourly-employee-strategy"
 )
 
-func TestTimecardTransaction(t *testing.T) {
+func TestServiceChargeTransaction(t *testing.T) {
 	payrollDatabase.Init()
 
-	empID := 5
-	d := date.New(2005, 7, 31)
+	empID := 2
 
 	cmd := addEmployeeTransaction.AddEmployee(empID, "Bill", "Home", hourlyEmployeeStrategy.New(15.25))
 
@@ -26,29 +27,33 @@ func TestTimecardTransaction(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	cmd = CreateTimecard(d, 8, empID)
+	employee, err := payrollDatabase.GetEmployee(empID)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	ua := unionAffilation.New()
+
+	employee.SetAffiliation(ua)
+
+	memberID := 86
+
+	err = payrollDatabase.AddUnionMember(memberID, employee)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	date := date.New(2005, 8, 8)
+	charge := 12.95
+
+	cmd = CreateServiceCharge(memberID, date, charge)
 
 	err = cmd.Execute()
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	e, err := payrollDatabase.GetEmployee(empID)
-	if err != nil {
-		t.Fatal(err)
-	}
+	serviceCharge := ua.GetServiceCharge(date)
 
-	classification := e.Classification()
-
-	hc, ok := classification.(*hourlyClassification.HourlyClassification)
-	if !ok {
-		t.Fatal()
-	}
-
-	timecard, err := hc.GetTimeCard(d)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	assert.Equal(t, 8.0, timecard.Hours())
+	assert.Equal(t, charge, serviceCharge.Amount(), 0.001)
 }

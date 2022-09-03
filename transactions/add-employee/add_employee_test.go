@@ -61,7 +61,7 @@ func TestAddSalariedEmployee(t *testing.T) {
 func TestAddHourlyEmployee(t *testing.T) {
 	payrollDatabase.Init()
 
-	hourlyRate := float64(10)
+	hourlyRate := 10.42
 
 	cmd := AddEmployee(empID, name, address, hourlyEmployeeStrategy.New(hourlyRate))
 
@@ -89,8 +89,8 @@ func TestAddHourlyEmployee(t *testing.T) {
 func TestAddCommissionedEmployee(t *testing.T) {
 	payrollDatabase.Init()
 
-	salary := float64(1000)
-	commissionRate := float64(10)
+	salary := 1000.42
+	commissionRate := 10.42
 
 	cmd := AddEmployee(empID, name, address, commissionedEmployeeStrategy.New(salary, commissionRate))
 
@@ -108,7 +108,7 @@ func TestAddCommissionedEmployee(t *testing.T) {
 
 	assert.IsType(t, commissionedClassification.CommissionedClassification{}, employee.Classification())
 
-	cc, _ := employee.Classification().(commissionedClassification.CommissionedClassification)
+	cc, _ := employee.Classification().(*commissionedClassification.CommissionedClassification)
 	assert.InDelta(t, salary, cc.Salary(), 0.001)
 	assert.InDelta(t, commissionRate, cc.CommissionRate(), 0.001)
 

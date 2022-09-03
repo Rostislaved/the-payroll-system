@@ -5,7 +5,7 @@ import (
 )
 
 type Employee struct {
-	empid   int
+	empID   int
 	name    string
 	address string
 
@@ -15,8 +15,16 @@ type Employee struct {
 	affiliation    Affiliation
 }
 
+func (e *Employee) SetAffiliation(affiliation Affiliation) {
+	e.affiliation = affiliation
+}
+
+func (e *Employee) Affiliation() (affiliation Affiliation) {
+	return e.affiliation
+}
+
 type Affiliation interface {
-	// impl
+	GetFee(date date.Date) (fee float64)
 }
 
 type PaymentMethod interface {
@@ -31,9 +39,9 @@ type PaymentClassification interface {
 	CalculatePay(date date.Date) float64
 }
 
-func New(empid int, name, address string) Employee {
+func New(empID int, name, address string) Employee {
 	return Employee{
-		empid:   empid,
+		empID:   empID,
 		name:    name,
 		address: address,
 	}

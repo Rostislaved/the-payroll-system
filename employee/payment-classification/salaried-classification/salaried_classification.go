@@ -17,5 +17,5 @@ func (c SalariedClassification) Salary() float64 {
 }
 
 func (c SalariedClassification) CalculatePay(date date.Date) float64 {
-	return 1.23 // impl
+	return c.salary
 }
