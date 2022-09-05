@@ -5,14 +5,14 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/date"
+	"github.com/Rostislaved/the-payroll-system/employee/date"
 
-	unionAffilation "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/affilation/union-affilation"
+	unionAffilation "github.com/Rostislaved/the-payroll-system/employee/affilation/union-affilation"
 
-	payrollDatabase "my-projects/awesomeProject15_AgileSoftwareDevelopment/payroll-database"
+	payrollDatabase "github.com/Rostislaved/the-payroll-system/payroll-database"
 
-	addEmployeeTransaction "my-projects/awesomeProject15_AgileSoftwareDevelopment/transactions/add-employee"
-	hourlyEmployeeStrategy "my-projects/awesomeProject15_AgileSoftwareDevelopment/transactions/add-employee/strategies/hourly-employee-strategy"
+	addEmployeeTransaction "github.com/Rostislaved/the-payroll-system/transactions/add-employee"
+	hourlyEmployeeStrategy "github.com/Rostislaved/the-payroll-system/transactions/add-employee/strategies/hourly-employee-strategy"
 )
 
 func TestServiceChargeTransaction(t *testing.T) {

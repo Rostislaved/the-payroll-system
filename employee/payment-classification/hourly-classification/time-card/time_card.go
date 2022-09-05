@@ -1,7 +1,7 @@
 package timeCard
 
 import (
-	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/date"
+	"github.com/Rostislaved/the-payroll-system/employee/date"
 )
 
 type TimeCard struct {

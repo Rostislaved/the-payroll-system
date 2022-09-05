@@ -3,14 +3,14 @@ package timecardTransaction
 import (
 	"errors"
 
-	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/date"
-	timeCard "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-classification/hourly-classification/time-card"
+	"github.com/Rostislaved/the-payroll-system/employee/date"
+	timeCard "github.com/Rostislaved/the-payroll-system/employee/payment-classification/hourly-classification/time-card"
 
-	hourlyClassification "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-classification/hourly-classification"
+	hourlyClassification "github.com/Rostislaved/the-payroll-system/employee/payment-classification/hourly-classification"
 
-	payrollDatabase "my-projects/awesomeProject15_AgileSoftwareDevelopment/payroll-database"
+	payrollDatabase "github.com/Rostislaved/the-payroll-system/payroll-database"
 
-	payrollApplication "my-projects/awesomeProject15_AgileSoftwareDevelopment/payroll-application"
+	payrollApplication "github.com/Rostislaved/the-payroll-system/payroll-application"
 )
 
 type TimecardTransaction struct {

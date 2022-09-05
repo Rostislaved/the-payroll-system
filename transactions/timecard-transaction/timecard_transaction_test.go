@@ -3,14 +3,14 @@ package timecardTransaction
 import (
 	"testing"
 
+	"github.com/Rostislaved/the-payroll-system/employee/date"
 	"github.com/stretchr/testify/assert"
-	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/date"
 
-	hourlyClassification "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-classification/hourly-classification"
-	payrollDatabase "my-projects/awesomeProject15_AgileSoftwareDevelopment/payroll-database"
+	hourlyClassification "github.com/Rostislaved/the-payroll-system/employee/payment-classification/hourly-classification"
+	payrollDatabase "github.com/Rostislaved/the-payroll-system/payroll-database"
 
-	addEmployeeTransaction "my-projects/awesomeProject15_AgileSoftwareDevelopment/transactions/add-employee"
-	hourlyEmployeeStrategy "my-projects/awesomeProject15_AgileSoftwareDevelopment/transactions/add-employee/strategies/hourly-employee-strategy"
+	addEmployeeTransaction "github.com/Rostislaved/the-payroll-system/transactions/add-employee"
+	hourlyEmployeeStrategy "github.com/Rostislaved/the-payroll-system/transactions/add-employee/strategies/hourly-employee-strategy"
 )
 
 func TestTimecardTransaction(t *testing.T) {

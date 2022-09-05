@@ -4,12 +4,12 @@ import (
 	"errors"
 	"testing"
 
-	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee"
+	"github.com/Rostislaved/the-payroll-system/employee"
 
-	payrollDatabase "my-projects/awesomeProject15_AgileSoftwareDevelopment/payroll-database"
+	payrollDatabase "github.com/Rostislaved/the-payroll-system/payroll-database"
 
-	addEmployeeTransaction "my-projects/awesomeProject15_AgileSoftwareDevelopment/transactions/add-employee"
-	commissionedEmployeeStrategy "my-projects/awesomeProject15_AgileSoftwareDevelopment/transactions/add-employee/strategies/commissioned-employee-strategy"
+	addEmployeeTransaction "github.com/Rostislaved/the-payroll-system/transactions/add-employee"
+	commissionedEmployeeStrategy "github.com/Rostislaved/the-payroll-system/transactions/add-employee/strategies/commissioned-employee-strategy"
 )
 
 func TestDeleteEmployee(t *testing.T) {

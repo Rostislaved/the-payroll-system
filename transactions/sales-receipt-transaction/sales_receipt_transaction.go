@@ -3,11 +3,11 @@ package salesReceiptTransaction
 import (
 	"errors"
 
-	salesReceipt "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-classification/commissioned-classification/sales-receipt"
+	salesReceipt "github.com/Rostislaved/the-payroll-system/employee/payment-classification/commissioned-classification/sales-receipt"
 
-	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/date"
-	commissionedClassification "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-classification/commissioned-classification"
-	payrollDatabase "my-projects/awesomeProject15_AgileSoftwareDevelopment/payroll-database"
+	"github.com/Rostislaved/the-payroll-system/employee/date"
+	commissionedClassification "github.com/Rostislaved/the-payroll-system/employee/payment-classification/commissioned-classification"
+	payrollDatabase "github.com/Rostislaved/the-payroll-system/payroll-database"
 )
 
 type SalesReceiptTransaction struct {

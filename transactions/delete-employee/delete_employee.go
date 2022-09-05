@@ -1,8 +1,8 @@
 package deleteEmployee
 
 import (
-	payrollApplication "my-projects/awesomeProject15_AgileSoftwareDevelopment/payroll-application"
-	payrollDatabase "my-projects/awesomeProject15_AgileSoftwareDevelopment/payroll-database"
+	payrollApplication "github.com/Rostislaved/the-payroll-system/payroll-application"
+	payrollDatabase "github.com/Rostislaved/the-payroll-system/payroll-database"
 )
 
 type DeleteEmployeeTransaction struct {

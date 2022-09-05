@@ -1,25 +1,21 @@
 package addEmployeeTransaction
 
 import (
-	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee"
-	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-methods/holdMethod"
-	payrollApplication "my-projects/awesomeProject15_AgileSoftwareDevelopment/payroll-application"
-	payrollDatabase "my-projects/awesomeProject15_AgileSoftwareDevelopment/payroll-database"
+	"github.com/Rostislaved/the-payroll-system/employee"
+	"github.com/Rostislaved/the-payroll-system/employee/payment-methods/holdMethod"
+	"github.com/Rostislaved/the-payroll-system/interfaces/make-employee-strategy"
+	payrollApplication "github.com/Rostislaved/the-payroll-system/payroll-application"
+	payrollDatabase "github.com/Rostislaved/the-payroll-system/payroll-database"
 )
 
 type AddEmployeeTransaction struct {
-	strategy strategy
+	strategy makeEmployeeStrategy.MakeEmployeeStrategy
 	empID    int
 	name     string
 	address  string
 }
 
-type strategy interface {
-	MakeClassification() employee.PaymentClassification
-	MakeSchedule() employee.PaymentSchedule
-}
-
-func AddEmployee(empID int, name, address string, strategy strategy) payrollApplication.Transction {
+func AddEmployee(empID int, name, address string, strategy makeEmployeeStrategy.MakeEmployeeStrategy) payrollApplication.Transction {
 	return AddEmployeeTransaction{
 		strategy: strategy,
 		empID:    empID,

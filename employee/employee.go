@@ -1,7 +1,9 @@
 package employee
 
 import (
-	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/date"
+	"github.com/Rostislaved/the-payroll-system/employee/date"
+	"github.com/Rostislaved/the-payroll-system/interfaces/payment-classification-interface"
+	"github.com/Rostislaved/the-payroll-system/interfaces/payment-schedule-interface"
 )
 
 type Employee struct {
@@ -9,8 +11,8 @@ type Employee struct {
 	name    string
 	address string
 
-	classification PaymentClassification
-	schedule       PaymentSchedule
+	classification paymentClassificationInterface.PaymentClassification
+	schedule       paymentScheduleInterface.PaymentSchedule
 	method         PaymentMethod
 	affiliation    Affiliation
 }
@@ -31,14 +33,6 @@ type PaymentMethod interface {
 	Pay(amount int)
 }
 
-type PaymentSchedule interface {
-	IsPayday(date date.Date) bool
-}
-
-type PaymentClassification interface {
-	CalculatePay(date date.Date) float64
-}
-
 func New(empID int, name, address string) Employee {
 	return Employee{
 		empID:   empID,
@@ -51,23 +45,31 @@ func (e *Employee) Name() string {
 	return e.name
 }
 
+func (e *Employee) SetName(name string) {
+	e.name = name
+}
+
 func (e *Employee) Address() string {
 	return e.address
 }
 
-func (e *Employee) Classification() PaymentClassification {
+func (e *Employee) SetAddress(address string) {
+	e.address = address
+}
+
+func (e *Employee) Classification() paymentClassificationInterface.PaymentClassification {
 	return e.classification
 }
 
-func (e *Employee) SetClassification(classification PaymentClassification) {
+func (e *Employee) SetClassification(classification paymentClassificationInterface.PaymentClassification) {
 	e.classification = classification
 }
 
-func (e *Employee) Schedule() PaymentSchedule {
+func (e *Employee) Schedule() paymentScheduleInterface.PaymentSchedule {
 	return e.schedule
 }
 
-func (e *Employee) SetSchedule(schedule PaymentSchedule) {
+func (e *Employee) SetSchedule(schedule paymentScheduleInterface.PaymentSchedule) {
 	e.schedule = schedule
 }
 

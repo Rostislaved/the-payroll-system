@@ -1,6 +1,6 @@
 package payrollApplication
 
-import payrollDatabase "my-projects/awesomeProject15_AgileSoftwareDevelopment/payroll-database"
+import payrollDatabase "github.com/Rostislaved/the-payroll-system/payroll-database"
 
 type PayrollApplication struct {
 	ts TransactionSource

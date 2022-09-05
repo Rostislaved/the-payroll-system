@@ -3,7 +3,7 @@ package payrollDatabase
 import (
 	"errors"
 
-	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee"
+	"github.com/Rostislaved/the-payroll-system/employee"
 )
 
 type PayrollDatabase struct {

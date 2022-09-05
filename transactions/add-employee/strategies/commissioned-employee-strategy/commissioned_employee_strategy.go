@@ -1,9 +1,10 @@
 package commissionedEmployeeStrategy
 
 import (
-	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee"
-	commissionedClassification "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-classification/commissioned-classification"
-	biweeklySchedule "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-schedule/biweekly-schedule"
+	commissionedClassification "github.com/Rostislaved/the-payroll-system/employee/payment-classification/commissioned-classification"
+	biweeklySchedule "github.com/Rostislaved/the-payroll-system/employee/payment-schedule/biweekly-schedule"
+	"github.com/Rostislaved/the-payroll-system/interfaces/payment-classification-interface"
+	"github.com/Rostislaved/the-payroll-system/interfaces/payment-schedule-interface"
 )
 
 type CommissionedEmployeeStrategy struct {
@@ -18,10 +19,10 @@ func New(salary, commissionRate float64) CommissionedEmployeeStrategy {
 	}
 }
 
-func (s CommissionedEmployeeStrategy) MakeClassification() employee.PaymentClassification {
+func (s CommissionedEmployeeStrategy) MakeClassification() paymentClassificationInterface.PaymentClassification {
 	return commissionedClassification.New(s.salary, s.commissionRate)
 }
 
-func (s CommissionedEmployeeStrategy) MakeSchedule() employee.PaymentSchedule {
+func (s CommissionedEmployeeStrategy) MakeSchedule() paymentScheduleInterface.PaymentSchedule {
 	return biweeklySchedule.New()
 }

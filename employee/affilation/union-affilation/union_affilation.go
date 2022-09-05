@@ -1,8 +1,8 @@
 package unionAffilation
 
 import (
-	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/date"
-	serviceCharge "my-projects/awesomeProject15_AgileSoftwareDevelopment/transactions/add-service-charge/service-charge"
+	"github.com/Rostislaved/the-payroll-system/employee/date"
+	serviceCharge "github.com/Rostislaved/the-payroll-system/transactions/add-service-charge/service-charge"
 )
 
 type UnionAffilation struct {

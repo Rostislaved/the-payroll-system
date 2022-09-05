@@ -1,4 +1,4 @@
-module my-projects/awesomeProject15_AgileSoftwareDevelopment
+module github.com/Rostislaved/the-payroll-system
 
 go 1.19
 

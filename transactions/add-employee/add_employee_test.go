@@ -3,25 +3,25 @@ package addEmployeeTransaction
 import (
 	"testing"
 
-	biweeklySchedule "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-schedule/biweekly-schedule"
+	biweeklySchedule "github.com/Rostislaved/the-payroll-system/employee/payment-schedule/biweekly-schedule"
 
-	commissionedClassification "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-classification/commissioned-classification"
-	commissionedEmployeeStrategy "my-projects/awesomeProject15_AgileSoftwareDevelopment/transactions/add-employee/strategies/commissioned-employee-strategy"
+	commissionedClassification "github.com/Rostislaved/the-payroll-system/employee/payment-classification/commissioned-classification"
+	commissionedEmployeeStrategy "github.com/Rostislaved/the-payroll-system/transactions/add-employee/strategies/commissioned-employee-strategy"
 
-	hourlyEmployeeStrategy "my-projects/awesomeProject15_AgileSoftwareDevelopment/transactions/add-employee/strategies/hourly-employee-strategy"
+	hourlyEmployeeStrategy "github.com/Rostislaved/the-payroll-system/transactions/add-employee/strategies/hourly-employee-strategy"
 
-	hourlyClassification "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-classification/hourly-classification"
-	weeklySchedule "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-schedule/weekly-schedule"
+	hourlyClassification "github.com/Rostislaved/the-payroll-system/employee/payment-classification/hourly-classification"
+	weeklySchedule "github.com/Rostislaved/the-payroll-system/employee/payment-schedule/weekly-schedule"
 
-	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-methods/holdMethod"
+	"github.com/Rostislaved/the-payroll-system/employee/payment-methods/holdMethod"
 
-	monthlySchedule "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-schedule/montly-schedule"
+	monthlySchedule "github.com/Rostislaved/the-payroll-system/employee/payment-schedule/montly-schedule"
 
-	salariedClassification "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-classification/salaried-classification"
+	salariedClassification "github.com/Rostislaved/the-payroll-system/employee/payment-classification/salaried-classification"
 
+	payrollDatabase "github.com/Rostislaved/the-payroll-system/payroll-database"
+	salariedEmployeeStrategy "github.com/Rostislaved/the-payroll-system/transactions/add-employee/strategies/salaried-employee-strategy"
 	"github.com/stretchr/testify/assert"
-	payrollDatabase "my-projects/awesomeProject15_AgileSoftwareDevelopment/payroll-database"
-	salariedEmployeeStrategy "my-projects/awesomeProject15_AgileSoftwareDevelopment/transactions/add-employee/strategies/salaried-employee-strategy"
 )
 
 var (
@@ -106,7 +106,7 @@ func TestAddCommissionedEmployee(t *testing.T) {
 
 	assert.Equal(t, name, employee.Name())
 
-	assert.IsType(t, commissionedClassification.CommissionedClassification{}, employee.Classification())
+	assert.IsType(t, &commissionedClassification.CommissionedClassification{}, employee.Classification())
 
 	cc, _ := employee.Classification().(*commissionedClassification.CommissionedClassification)
 	assert.InDelta(t, salary, cc.Salary(), 0.001)

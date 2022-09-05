@@ -1,8 +1,8 @@
 package commissionedClassification
 
 import (
-	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/date"
-	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-classification/commissioned-classification/sales-receipt"
+	"github.com/Rostislaved/the-payroll-system/employee/date"
+	"github.com/Rostislaved/the-payroll-system/employee/payment-classification/commissioned-classification/sales-receipt"
 )
 
 type CommissionedClassification struct {

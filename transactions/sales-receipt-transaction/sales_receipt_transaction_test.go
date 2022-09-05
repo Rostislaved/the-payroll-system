@@ -3,16 +3,16 @@ package salesReceiptTransaction
 import (
 	"testing"
 
+	salesReceipt "github.com/Rostislaved/the-payroll-system/employee/payment-classification/commissioned-classification/sales-receipt"
 	"github.com/stretchr/testify/assert"
-	salesReceipt "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-classification/commissioned-classification/sales-receipt"
 
-	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/date"
+	"github.com/Rostislaved/the-payroll-system/employee/date"
 
-	commissionedClassification "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-classification/commissioned-classification"
-	commissionedEmployeeStrategy "my-projects/awesomeProject15_AgileSoftwareDevelopment/transactions/add-employee/strategies/commissioned-employee-strategy"
+	commissionedClassification "github.com/Rostislaved/the-payroll-system/employee/payment-classification/commissioned-classification"
+	commissionedEmployeeStrategy "github.com/Rostislaved/the-payroll-system/transactions/add-employee/strategies/commissioned-employee-strategy"
 
-	payrollDatabase "my-projects/awesomeProject15_AgileSoftwareDevelopment/payroll-database"
-	addEmployeeTransaction "my-projects/awesomeProject15_AgileSoftwareDevelopment/transactions/add-employee"
+	payrollDatabase "github.com/Rostislaved/the-payroll-system/payroll-database"
+	addEmployeeTransaction "github.com/Rostislaved/the-payroll-system/transactions/add-employee"
 )
 
 //func a()  {

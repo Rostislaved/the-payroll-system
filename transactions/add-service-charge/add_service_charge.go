@@ -3,10 +3,10 @@ package addServiceCharge
 import (
 	"errors"
 
-	unionAffilation "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/affilation/union-affilation"
-	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/date"
-	payrollDatabase "my-projects/awesomeProject15_AgileSoftwareDevelopment/payroll-database"
-	serviceCharge "my-projects/awesomeProject15_AgileSoftwareDevelopment/transactions/add-service-charge/service-charge"
+	unionAffilation "github.com/Rostislaved/the-payroll-system/employee/affilation/union-affilation"
+	"github.com/Rostislaved/the-payroll-system/employee/date"
+	payrollDatabase "github.com/Rostislaved/the-payroll-system/payroll-database"
+	serviceCharge "github.com/Rostislaved/the-payroll-system/transactions/add-service-charge/service-charge"
 )
 
 type ServiceChargeTransaction struct {

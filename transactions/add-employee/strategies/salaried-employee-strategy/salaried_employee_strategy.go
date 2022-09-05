@@ -1,9 +1,10 @@
 package salariedEmployeeStrategy
 
 import (
-	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee"
-	salariedClassification "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-classification/salaried-classification"
-	monthlySchedule "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-schedule/montly-schedule"
+	salariedClassification "github.com/Rostislaved/the-payroll-system/employee/payment-classification/salaried-classification"
+	monthlySchedule "github.com/Rostislaved/the-payroll-system/employee/payment-schedule/montly-schedule"
+	"github.com/Rostislaved/the-payroll-system/interfaces/payment-classification-interface"
+	"github.com/Rostislaved/the-payroll-system/interfaces/payment-schedule-interface"
 )
 
 type SalariedEmployeeStrategy struct {
@@ -16,10 +17,10 @@ func New(salary float64) SalariedEmployeeStrategy {
 	}
 }
 
-func (s SalariedEmployeeStrategy) MakeClassification() employee.PaymentClassification {
+func (s SalariedEmployeeStrategy) MakeClassification() paymentClassificationInterface.PaymentClassification {
 	return salariedClassification.New(s.salary)
 }
 
-func (s SalariedEmployeeStrategy) MakeSchedule() employee.PaymentSchedule {
+func (s SalariedEmployeeStrategy) MakeSchedule() paymentScheduleInterface.PaymentSchedule {
 	return monthlySchedule.New()
 }

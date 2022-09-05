@@ -1,6 +1,6 @@
 package noAffilation
 
-import "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/date"
+import "github.com/Rostislaved/the-payroll-system/employee/date"
 
 type NoAffilation struct{}
 

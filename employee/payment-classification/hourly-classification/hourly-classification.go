@@ -1,14 +1,11 @@
 package hourlyClassification
 
 import (
-	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/date"
+	"github.com/Rostislaved/the-payroll-system/employee/date"
+	timeCard "github.com/Rostislaved/the-payroll-system/employee/payment-classification/hourly-classification/time-card"
 
-	timeCard "my-projects/awesomeProject15_AgileSoftwareDevelopment/employee/payment-classification/hourly-classification/time-card"
-
-	"my-projects/awesomeProject15_AgileSoftwareDevelopment/employee"
+	"github.com/Rostislaved/the-payroll-system/employee"
 )
-
-var _ employee.PaymentClassification = (*HourlyClassification)(nil)
 
 type HourlyClassification struct {
 	hourlyRate float64
