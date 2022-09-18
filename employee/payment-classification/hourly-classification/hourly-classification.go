@@ -20,7 +20,8 @@ func New(hourlyRate float64) *HourlyClassification {
 }
 
 func (c *HourlyClassification) CalculatePay(pc paycheck.Paycheck) float64 {
-	return 1.23 // impl
+	panic("impl")
+	return 1.23
 }
 
 func (c *HourlyClassification) HourlyRate() float64 {

@@ -11,3 +11,6 @@ Strategy pattern used instead of Template Method pattern (because Go doesn't hav
 
 ### PayrollDatabase
 Global instance is used like in the book. I personally don't prefer global state, but kept it for consistency purposes.
+
+### PayTransaction
+Tests have not been implemented

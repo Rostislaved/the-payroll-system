@@ -1,8 +1,8 @@
 package commissionedClassification
 
 import (
-	"github.com/Rostislaved/the-payroll-system/employee/date"
 	"github.com/Rostislaved/the-payroll-system/employee/payment-classification/commissioned-classification/sales-receipt"
+	"github.com/Rostislaved/the-payroll-system/paycheck"
 )
 
 type CommissionedClassification struct {
@@ -26,8 +26,9 @@ func (c *CommissionedClassification) AddSalesReceipt(salesReceipt salesReceipt.S
 	c.salesReceipts = append(c.salesReceipts, salesReceipt)
 }
 
-func (c *CommissionedClassification) CalculatePay(date date.Date) float64 {
-	return 1.23 // impl
+func (c *CommissionedClassification) CalculatePay(pc paycheck.Paycheck) float64 {
+	panic("impl")
+	return 1.23
 }
 
 func (c *CommissionedClassification) CommissionRate() float64 {

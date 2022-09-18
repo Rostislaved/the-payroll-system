@@ -91,11 +91,3 @@ func (e *Employee) Payday(pc paycheck.Paycheck) {
 
 	e.Method().Pay(pc)
 }
-
-//func (e *Employee) CalculatePay(date date.Date) float64 {
-//	pay := e.classification.CalculatePay(date)
-//
-//	// Affiliation GetFee(date)
-//
-//	return pay
-//}

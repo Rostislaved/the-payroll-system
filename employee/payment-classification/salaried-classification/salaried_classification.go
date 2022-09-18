@@ -1,6 +1,8 @@
 package salariedClassification
 
-import "github.com/Rostislaved/the-payroll-system/employee/date"
+import (
+	"github.com/Rostislaved/the-payroll-system/paycheck"
+)
 
 type SalariedClassification struct {
 	salary float64
@@ -16,6 +18,6 @@ func (c SalariedClassification) Salary() float64 {
 	return c.salary
 }
 
-func (c SalariedClassification) CalculatePay(date date.Date) float64 {
+func (c SalariedClassification) CalculatePay(pc paycheck.Paycheck) float64 {
 	return c.salary
 }

@@ -2,6 +2,7 @@ package unionAffiliation
 
 import (
 	"github.com/Rostislaved/the-payroll-system/employee/date"
+	"github.com/Rostislaved/the-payroll-system/paycheck"
 	serviceCharge "github.com/Rostislaved/the-payroll-system/transactions/add-service-charge/service-charge"
 )
 
@@ -13,7 +14,7 @@ func New() *UnionAffiliation {
 	return &UnionAffiliation{}
 }
 
-func (a *UnionAffiliation) GetFee(date date.Date) (fee float64) {
+func (a *UnionAffiliation) GetFee(pc paycheck.Paycheck) (fee float64) {
 	panic("impl")
 	return 0
 }

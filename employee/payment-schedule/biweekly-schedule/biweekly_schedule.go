@@ -27,6 +27,3 @@ func (s BiweeklySchedule) IsPayday(date date.Date) bool {
 
 	return false
 }
-
-func (c BiweeklySchedule) CalculatePay(date date.Date) {
-}
