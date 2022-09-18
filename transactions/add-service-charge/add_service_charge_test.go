@@ -7,7 +7,7 @@ import (
 
 	"github.com/Rostislaved/the-payroll-system/employee/date"
 
-	unionAffilation "github.com/Rostislaved/the-payroll-system/employee/affilation/union-affilation"
+	unionAffiliation "github.com/Rostislaved/the-payroll-system/employee/affiliation/union-affiliation"
 
 	payrollDatabase "github.com/Rostislaved/the-payroll-system/payroll-database"
 
@@ -32,7 +32,7 @@ func TestServiceChargeTransaction(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	ua := unionAffilation.New()
+	ua := unionAffiliation.New()
 
 	employee.SetAffiliation(ua)
 

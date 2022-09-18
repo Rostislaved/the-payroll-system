@@ -2,7 +2,7 @@ package employee
 
 import (
 	"github.com/Rostislaved/the-payroll-system/employee/date"
-	"github.com/Rostislaved/the-payroll-system/interfaces/affilation-interface"
+	"github.com/Rostislaved/the-payroll-system/interfaces/affiliation-interface"
 	"github.com/Rostislaved/the-payroll-system/interfaces/payment-classification-interface"
 	"github.com/Rostislaved/the-payroll-system/interfaces/payment-method-interface"
 	"github.com/Rostislaved/the-payroll-system/interfaces/payment-schedule-interface"
@@ -16,14 +16,14 @@ type Employee struct {
 	classification paymentClassificationInterface.PaymentClassification
 	schedule       paymentScheduleInterface.PaymentSchedule
 	method         paymentMethodInterface.PaymentMethod
-	affiliation    affilationInterface.Affiliation
+	affiliation    affiliationInterface.Affiliation
 }
 
-func (e *Employee) SetAffiliation(affiliation affilationInterface.Affiliation) {
+func (e *Employee) SetAffiliation(affiliation affiliationInterface.Affiliation) {
 	e.affiliation = affiliation
 }
 
-func (e *Employee) Affiliation() (affiliation affilationInterface.Affiliation) {
+func (e *Employee) Affiliation() (affiliation affiliationInterface.Affiliation) {
 	return e.affiliation
 }
 
@@ -82,7 +82,7 @@ func (e *Employee) IsPayDate(date date.Date) bool {
 func (e *Employee) CalculatePay(date date.Date) float64 {
 	pay := e.classification.CalculatePay(date)
 
-	// Affilation GetFee(date)
+	// Affiliation GetFee(date)
 
 	return pay
 }

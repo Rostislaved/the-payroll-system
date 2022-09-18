@@ -1,4 +1,4 @@
-package affilationInterface
+package affiliationInterface
 
 import "github.com/Rostislaved/the-payroll-system/employee/date"
 

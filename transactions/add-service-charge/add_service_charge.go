@@ -3,7 +3,7 @@ package addServiceCharge
 import (
 	"errors"
 
-	unionAffilation "github.com/Rostislaved/the-payroll-system/employee/affilation/union-affilation"
+	unionAffiliation "github.com/Rostislaved/the-payroll-system/employee/affiliation/union-affiliation"
 	"github.com/Rostislaved/the-payroll-system/employee/date"
 	payrollDatabase "github.com/Rostislaved/the-payroll-system/payroll-database"
 	serviceCharge "github.com/Rostislaved/the-payroll-system/transactions/add-service-charge/service-charge"
@@ -29,7 +29,7 @@ func (t ServiceChargeTransaction) Execute() error {
 		return err
 	}
 
-	ua, ok := employee.Affiliation().(*unionAffilation.UnionAffilation)
+	ua, ok := employee.Affiliation().(*unionAffiliation.UnionAffiliation)
 	if !ok {
 		err = errors.New("tries to add service charge to union member without a union affiliation")
 
