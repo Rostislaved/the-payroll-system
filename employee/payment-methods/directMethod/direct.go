@@ -1,6 +1,8 @@
 package directMethod
 
-import "fmt"
+import (
+	"github.com/Rostislaved/the-payroll-system/paycheck"
+)
 
 type DirectMethod struct {
 	bank    string
@@ -11,6 +13,6 @@ func New() DirectMethod {
 	return DirectMethod{}
 }
 
-func (m DirectMethod) Pay(amount int) {
-	fmt.Printf("Payed %d by DirectMethod\n", amount)
+func (m DirectMethod) Pay(pc paycheck.Paycheck) {
+	panic("impl")
 }
