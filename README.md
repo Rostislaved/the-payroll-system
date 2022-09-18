@@ -14,3 +14,7 @@ Global instance is used like in the book. I personally don't prefer global state
 
 ### PayTransaction
 Tests have not been implemented
+
+TODO:
+1.Tests for PayTransaction
+2. implement parsing for other transactions in TestParserTransactionSource (now only addEmployee)

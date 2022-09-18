@@ -9,7 +9,7 @@ type DeleteEmployeeTransaction struct {
 	id int
 }
 
-func DeleteEmployee(id int) payrollApplication.Transction {
+func DeleteEmployee(id int) payrollApplication.Transaction {
 	return DeleteEmployeeTransaction{
 		id: id,
 	}

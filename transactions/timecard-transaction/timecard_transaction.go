@@ -19,7 +19,7 @@ type TimecardTransaction struct {
 	empID int
 }
 
-func CreateTimecard(date date.Date, hours float64, empID int) payrollApplication.Transction {
+func CreateTimecard(date date.Date, hours float64, empID int) payrollApplication.Transaction {
 	return TimecardTransaction{
 		date:  date,
 		hours: hours,

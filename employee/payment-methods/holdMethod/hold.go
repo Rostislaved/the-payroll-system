@@ -11,5 +11,5 @@ func New() HoldMethod {
 }
 
 func (m HoldMethod) Pay(pc paycheck.Paycheck) {
-	panic("impl")
+	panic("Not implemented")
 }

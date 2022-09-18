@@ -14,5 +14,5 @@ func New() DirectMethod {
 }
 
 func (m DirectMethod) Pay(pc paycheck.Paycheck) {
-	panic("impl")
+	panic("Not implemented")
 }

@@ -27,7 +27,7 @@ func (c *CommissionedClassification) AddSalesReceipt(salesReceipt salesReceipt.S
 }
 
 func (c *CommissionedClassification) CalculatePay(pc paycheck.Paycheck) float64 {
-	panic("impl")
+	panic("Not implemented")
 	return 1.23
 }
 

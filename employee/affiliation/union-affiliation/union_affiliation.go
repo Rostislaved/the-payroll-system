@@ -15,7 +15,7 @@ func New() *UnionAffiliation {
 }
 
 func (a *UnionAffiliation) GetFee(pc paycheck.Paycheck) (fee float64) {
-	panic("impl")
+	panic("Not implemented")
 	return 0
 }
 

@@ -15,7 +15,7 @@ type AddEmployeeTransaction struct {
 	address  string
 }
 
-func AddEmployee(empID int, name, address string, strategy makeEmployeeStrategy.MakeEmployeeStrategy) payrollApplication.Transction {
+func AddEmployee(empID int, name, address string, strategy makeEmployeeStrategy.MakeEmployeeStrategy) payrollApplication.Transaction {
 	return AddEmployeeTransaction{
 		strategy: strategy,
 		empID:    empID,
