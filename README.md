@@ -1,12 +1,12 @@
-# The Payroll System implemented in Go    
-Robert C. Martin - Agile Software Development, Principles, Patterns, and Practices (or Agile Principles, Patterns, and Practices in C#) 
+# The Payroll System implemented in Go
+Robert C. Martin - Agile Software Development, Principles, Patterns, and Practices (or Agile Principles, Patterns, and Practices in C#)
 
 
 # Notes:
-### AddEmployeeTransaction  
+### AddEmployeeTransaction
 Strategy pattern used instead of Template Method pattern (because Go doesn't have inheritance)
 
-### ChangeEmployeeTransaction  
+### ChangeEmployeeTransaction
 Strategy pattern used instead of Template Method pattern (because Go doesn't have inheritance)
 
 ### PayrollDatabase
@@ -16,5 +16,5 @@ Global instance is used like in the book. I personally don't prefer global state
 Tests have not been implemented
 
 TODO:
-1. Tests for PayTransaction  
+1. Tests for PayTransaction
 2. implement parsing for other transactions in TestParserTransactionSource (now only addEmployee)  
