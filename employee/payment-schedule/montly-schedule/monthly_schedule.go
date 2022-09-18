@@ -9,5 +9,8 @@ func New() MonthlySchedule {
 }
 
 func (s MonthlySchedule) IsPayday(date date.Date) bool {
-	return true // TODO
+	m1 := date.Month()
+	m2 := date.AddDays(1).Month()
+
+	return m1 != m2
 }

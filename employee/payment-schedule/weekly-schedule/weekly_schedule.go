@@ -1,6 +1,10 @@
 package weeklySchedule
 
-import "github.com/Rostislaved/the-payroll-system/employee/date"
+import (
+	"time"
+
+	"github.com/Rostislaved/the-payroll-system/employee/date"
+)
 
 type WeeklySchedule struct{}
 
@@ -9,5 +13,5 @@ func New() WeeklySchedule {
 }
 
 func (s WeeklySchedule) IsPayday(date date.Date) bool {
-	return true // TODO
+	return date.Weekday() == time.Friday
 }

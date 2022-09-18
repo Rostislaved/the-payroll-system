@@ -1,7 +1,9 @@
 package affiliationInterface
 
-import "github.com/Rostislaved/the-payroll-system/employee/date"
+import (
+	"github.com/Rostislaved/the-payroll-system/paycheck"
+)
 
 type Affiliation interface {
-	GetFee(date date.Date) (fee float64)
+	GetFee(pc paycheck.Paycheck) (fee float64) // todo CalculateDeductions
 }

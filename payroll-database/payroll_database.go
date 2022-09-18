@@ -35,6 +35,14 @@ func GetEmployee(id int) (e employee.Employee, err error) {
 	return e, nil
 }
 
+func GetEmployeesIDs() (employeesIDs []int, err error) {
+	for id := range PayrollDatabaseInstance.employees {
+		employeesIDs = append(employeesIDs, id)
+	}
+
+	return employeesIDs, nil
+}
+
 func DeleteEmployee(id int) error {
 	delete(PayrollDatabaseInstance.employees, id)
 

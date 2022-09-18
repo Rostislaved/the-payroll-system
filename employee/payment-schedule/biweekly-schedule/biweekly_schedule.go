@@ -1,15 +1,31 @@
 package biweeklySchedule
 
-import "github.com/Rostislaved/the-payroll-system/employee/date"
+import (
+	"time"
 
-type BiweeklySchedule struct{}
+	"github.com/Rostislaved/the-payroll-system/employee/date"
+)
+
+type BiweeklySchedule struct {
+	secondFriday bool
+}
 
 func New() BiweeklySchedule {
 	return BiweeklySchedule{}
 }
 
 func (s BiweeklySchedule) IsPayday(date date.Date) bool {
-	return true // TODO
+	if date.Weekday() == time.Friday {
+		if s.secondFriday {
+			s.secondFriday = false
+			return true
+		} else {
+			s.secondFriday = true
+			return false
+		}
+	}
+
+	return false
 }
 
 func (c BiweeklySchedule) CalculatePay(date date.Date) {

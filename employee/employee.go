@@ -6,6 +6,7 @@ import (
 	"github.com/Rostislaved/the-payroll-system/interfaces/payment-classification-interface"
 	"github.com/Rostislaved/the-payroll-system/interfaces/payment-method-interface"
 	"github.com/Rostislaved/the-payroll-system/interfaces/payment-schedule-interface"
+	"github.com/Rostislaved/the-payroll-system/paycheck"
 )
 
 type Employee struct {
@@ -79,14 +80,22 @@ func (e *Employee) IsPayDate(date date.Date) bool {
 	return e.schedule.IsPayday(date)
 }
 
-func (e *Employee) CalculatePay(date date.Date) float64 {
-	pay := e.classification.CalculatePay(date)
+func (e *Employee) Payday(pc paycheck.Paycheck) {
+	gross := e.classification.CalculatePay(pc)
+	deductions := e.affiliation.GetFee(pc)
+	netPay := gross - deductions
 
-	// Affiliation GetFee(date)
+	pc.SetGrossPay(gross)
+	pc.SetDeductionsPay(deductions)
+	pc.SetNetPay(netPay)
 
-	return pay
+	e.Method().Pay(pc)
 }
 
-func (e *Employee) Payday() {
-	panic("implement me")
-}
+//func (e *Employee) CalculatePay(date date.Date) float64 {
+//	pay := e.classification.CalculatePay(date)
+//
+//	// Affiliation GetFee(date)
+//
+//	return pay
+//}

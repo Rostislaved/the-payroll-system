@@ -1,7 +1,9 @@
 package paymentClassificationInterface
 
-import "github.com/Rostislaved/the-payroll-system/employee/date"
+import (
+	"github.com/Rostislaved/the-payroll-system/paycheck"
+)
 
 type PaymentClassification interface {
-	CalculatePay(date date.Date) float64
+	CalculatePay(pc paycheck.Paycheck) float64
 }

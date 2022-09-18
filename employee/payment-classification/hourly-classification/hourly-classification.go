@@ -3,6 +3,7 @@ package hourlyClassification
 import (
 	"github.com/Rostislaved/the-payroll-system/employee/date"
 	timeCard "github.com/Rostislaved/the-payroll-system/employee/payment-classification/hourly-classification/time-card"
+	"github.com/Rostislaved/the-payroll-system/paycheck"
 
 	"github.com/Rostislaved/the-payroll-system/employee"
 )
@@ -18,7 +19,7 @@ func New(hourlyRate float64) *HourlyClassification {
 	}
 }
 
-func (c *HourlyClassification) CalculatePay(date date.Date) float64 {
+func (c *HourlyClassification) CalculatePay(pc paycheck.Paycheck) float64 {
 	return 1.23 // impl
 }
 
