@@ -15,7 +15,7 @@ func New(makeEmployeeStrategy makeEmployeeStrategy.MakeEmployeeStrategy) ChangeC
 	}
 }
 
-func (s ChangeClassificationStrategy) Change(employeeIn employee.Employee) (employeeOut employee.Employee, err error) {
+func (s ChangeClassificationStrategy) Change(employeeIn employee.Employee) (employeeOut employee.Employee) {
 	classification := s.makeEmployeeStrategy.MakeClassification()
 	schedule := s.makeEmployeeStrategy.MakeSchedule()
 
@@ -24,5 +24,5 @@ func (s ChangeClassificationStrategy) Change(employeeIn employee.Employee) (empl
 	employeeOut.SetClassification(classification)
 	employeeOut.SetSchedule(schedule)
 
-	return employeeOut, nil
+	return employeeOut
 }

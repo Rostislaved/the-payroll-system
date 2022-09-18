@@ -12,10 +12,10 @@ func New(name string) ChangeNameStrategy {
 	}
 }
 
-func (s ChangeNameStrategy) Change(employeeIn employee.Employee) (employeeOut employee.Employee, err error) {
+func (s ChangeNameStrategy) Change(employeeIn employee.Employee) (employeeOut employee.Employee) {
 	employeeIn.SetName(s.name)
 
 	employeeOut = employeeIn
 
-	return employeeOut, nil
+	return employeeOut
 }

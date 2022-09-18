@@ -12,10 +12,10 @@ func New(address string) ChangeAddressStrategy {
 	}
 }
 
-func (s ChangeAddressStrategy) Change(employeeIn employee.Employee) (employeeOut employee.Employee, err error) {
+func (s ChangeAddressStrategy) Change(employeeIn employee.Employee) (employeeOut employee.Employee) {
 	employeeIn.SetAddress(s.address)
 
 	employeeOut = employeeIn
 
-	return employeeOut, nil
+	return employeeOut
 }

@@ -2,7 +2,9 @@ package employee
 
 import (
 	"github.com/Rostislaved/the-payroll-system/employee/date"
+	"github.com/Rostislaved/the-payroll-system/interfaces/affilation-interface"
 	"github.com/Rostislaved/the-payroll-system/interfaces/payment-classification-interface"
+	"github.com/Rostislaved/the-payroll-system/interfaces/payment-method-interface"
 	"github.com/Rostislaved/the-payroll-system/interfaces/payment-schedule-interface"
 )
 
@@ -13,24 +15,16 @@ type Employee struct {
 
 	classification paymentClassificationInterface.PaymentClassification
 	schedule       paymentScheduleInterface.PaymentSchedule
-	method         PaymentMethod
-	affiliation    Affiliation
+	method         paymentMethodInterface.PaymentMethod
+	affiliation    affilationInterface.Affiliation
 }
 
-func (e *Employee) SetAffiliation(affiliation Affiliation) {
+func (e *Employee) SetAffiliation(affiliation affilationInterface.Affiliation) {
 	e.affiliation = affiliation
 }
 
-func (e *Employee) Affiliation() (affiliation Affiliation) {
+func (e *Employee) Affiliation() (affiliation affilationInterface.Affiliation) {
 	return e.affiliation
-}
-
-type Affiliation interface {
-	GetFee(date date.Date) (fee float64)
-}
-
-type PaymentMethod interface {
-	Pay(amount int)
 }
 
 func New(empID int, name, address string) Employee {
@@ -73,11 +67,11 @@ func (e *Employee) SetSchedule(schedule paymentScheduleInterface.PaymentSchedule
 	e.schedule = schedule
 }
 
-func (e *Employee) Method() PaymentMethod {
+func (e *Employee) Method() paymentMethodInterface.PaymentMethod {
 	return e.method
 }
 
-func (e *Employee) SetMethod(method PaymentMethod) {
+func (e *Employee) SetMethod(method paymentMethodInterface.PaymentMethod) {
 	e.method = method
 }
 
