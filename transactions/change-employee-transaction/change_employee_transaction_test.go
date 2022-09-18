@@ -3,6 +3,9 @@ package changeEmployeeTransactions
 import (
 	"testing"
 
+	unionAffiliation "github.com/Rostislaved/the-payroll-system/employee/affiliation/union-affiliation"
+	changeAffiliationStrategy "github.com/Rostislaved/the-payroll-system/transactions/change-employee-transaction/strategies/change-affiliation-strategy"
+
 	"github.com/Rostislaved/the-payroll-system/employee/payment-methods/directMethod"
 
 	changeMethodStrategy "github.com/Rostislaved/the-payroll-system/transactions/change-employee-transaction/strategies/change-method-strategy"
@@ -148,4 +151,37 @@ func TestChangeMethod(t *testing.T) {
 	}
 
 	assert.Equal(t, method, e.Method())
+}
+
+func TestChangeAffiliation(t *testing.T) {
+	payrollDatabase.Init()
+
+	salariedStrategy := salariedEmployeeStrategy.New(1.23)
+
+	empID := 42
+
+	cmd := addEmployeeTransaction.AddEmployee(empID, "Bob", "Home", salariedStrategy)
+
+	err := cmd.Execute()
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	affiliation := unionAffiliation.New()
+
+	changeStrategy := changeAffiliationStrategy.New(affiliation)
+
+	cmdChangeEmployee := ChangeEmployee(empID, changeStrategy)
+
+	err = cmdChangeEmployee.Execute()
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	e, err := payrollDatabase.GetEmployee(empID)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	assert.Equal(t, affiliation, e.Affiliation())
 }
