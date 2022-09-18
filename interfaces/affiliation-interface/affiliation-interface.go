@@ -5,5 +5,5 @@ import (
 )
 
 type Affiliation interface {
-	GetFee(pc paycheck.Paycheck) (fee float64) // todo CalculateDeductions
+	GetFee(pc paycheck.Paycheck) (fee float64)
 }
